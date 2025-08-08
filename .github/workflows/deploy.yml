@@ -22,4 +22,4 @@ jobs:
           port: ${{secrets.SSH_PORT || 22}}
           script:
             cd "/home/admin/day9/bin"
-            ./update.sh
+            && ./update.sh
