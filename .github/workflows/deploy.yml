@@ -21,7 +21,7 @@ jobs:
           key: ${{secrets.SSH_PRIVATE_KEY}}
           port: ${{secrets.SSH_PORT || 22}}
           script:
-            cd /home/admin/day9
+            cd "/home/admin/day9"
             ./update.sh
             git pull
             docker compose up --build -d
