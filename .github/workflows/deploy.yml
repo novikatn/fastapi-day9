@@ -1,0 +1,27 @@
+name: Deploy to production
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@1.0.3
+        with:
+          host: ${{secrets.SSH_HOST}}
+          username: ${{secrets.SSH_USERNAME}}
+          key: ${{secrets.SSH_SSH_PRIVATE_KEY}}
+          port: ${{secrets.SSH_PORT || 22}}
+          script:
+            cd /home/admin/day9
+            ./update.sh
+            git pull
+            docker compose up --build -d
