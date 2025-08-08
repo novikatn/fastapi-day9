@@ -1,5 +1,5 @@
 set -e
-cd /home/admin/day9/app
+cd /home/admin/day9
 echo "Updating code..."
 git fetch origin
 git reset --hard origin/master
