@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    APP_NAME: str = "FastAPI - Day 9"
+    APP_NAME: str = "FastAPI"
     DOCS_URL: str | None = None
     REDOC_URL: str | None = None
     OPENAPI_URL: str = "/openapi.json"
