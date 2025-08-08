@@ -23,5 +23,3 @@ jobs:
           script:
             cd "/home/admin/day9/bin"
             ./update.sh
-            git pull
-            docker compose up --build -d
