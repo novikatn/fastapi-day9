@@ -2,10 +2,10 @@ from sqlalchemy.orm import selectinload
 from sqlmodel import Session, select
 
 from app.models.database import User
-from app.schema.user import UserCreate
+from app.schema.auth import RegisterResponse
 
 
-def create_user(db_session: Session, user: UserCreate):
+def create_user(db_session: Session, user: RegisterResponse):
     new_user = User(**user.model_dump())
     db_session.add(new_user)
     db_session.commit()

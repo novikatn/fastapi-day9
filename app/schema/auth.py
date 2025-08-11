@@ -10,3 +10,7 @@ class AuthLogin(BaseModel):
     email: str
     password: str
 
+class RegisterResponse(BaseModel):
+    id: str
+    email: str
+    password: str

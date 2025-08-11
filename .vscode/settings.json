@@ -10,5 +10,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.ruff": "always",
     "source.organizeImports": "always"
-  }
+  },
+  "makefile.configureOnOpen": true
 }

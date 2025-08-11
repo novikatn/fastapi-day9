@@ -5,7 +5,7 @@ from app.models.engine import db_session
 from app.schema.user import UserCreate, UserRead
 from app.services.user_service import create_user, get_user, get_users
 
-users_router = APIRouter(prefix="/users")
+users_router = APIRouter(prefix="/users", tags=["Users"])
 
 @users_router.get("/", response_model=list[UserRead])
 def get_users_api(db: Session = Depends(db_session)):
