@@ -11,6 +11,7 @@ class User(SQLModel, table=True):
 
     posts: list["Post"] = Relationship(back_populates="user")
 
+
 class Post(SQLModel, table=True):
     id: str = Field(default_factory=generate_id, primary_key=True)
     title: str = Field(default="")

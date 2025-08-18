@@ -2,11 +2,11 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    APP_NAME: str = "FastAPI - Day 9"
+    APP_NAME: str = "FastAPI - Auth"
     DOCS_URL: str | None = None
     REDOC_URL: str | None = None
     OPENAPI_URL: str = "/openapi.json"
-    SCALAR_URL: str = '/scalar'
+    SCALAR_URL: str = "/scalar"
 
     DB_NAME: str = "postgres"
     DB_USER: str = "postgres"
@@ -14,12 +14,17 @@ class Settings(BaseSettings):
     DB_HOST: str = "localhost"
     DB_PORT: int = 5432
 
+    JWT_SECRET: str = "your-secret-key-here"
+    JWT_ALGORITHM: str = "HS256"
+    JWT_TOKEN_EXPIRES: int = 60
+
     @property
     def DB_CONNECTION_STRING(self) -> str:
-      return f"postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        return f"postgresql://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
     class Config:
-      env_file = ".env"
-      extra = "ignore"
+        env_file = ".env"
+        extra = "ignore"
+
 
 settings = Settings()

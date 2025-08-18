@@ -6,9 +6,11 @@ class AuthRegister(BaseModel):
     email: str
     password: str
 
+
 class AuthLogin(BaseModel):
     email: str
     password: str
+
 
 class RegisterResponse(BaseModel):
     id: str
